@@ -37,7 +37,19 @@ class MainActivity : AppCompatActivity() {
         val issueFragment = IssueFragment()
         val fragmentManager = supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
+        transaction.addToBackStack(null)
         transaction.
-            add(R.id.fragment_container,issueFragment).commit()
+            add(R.id.fragment_container,issueFragment,"issue_fragment").commit()
+    }
+
+    override fun onBackPressed() {
+        if(supportFragmentManager.findFragmentByTag("comment_fragment")!=null){
+            supportFragmentManager.popBackStack()
+            //Log.d("okkkk","################")
+            //super.onBackPressed()
+        }else {
+            super.onBackPressed()
+            //supportFragmentManager.popBackStack("issue_fragment",FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        }
     }
 }

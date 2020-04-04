@@ -82,4 +82,5 @@ class CommentPageFragment(val issueListViewModel: IssueListViewModel):Fragment()
             dialog.show(fragmentManager, "no_comment_dialog")
         }
     }
+
 }

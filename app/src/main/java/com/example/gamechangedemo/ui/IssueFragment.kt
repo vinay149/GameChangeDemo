@@ -74,8 +74,9 @@ class IssueFragment:Fragment(){
         val commentFragment = CommentPageFragment(viewModel)
         val fragmentManager = getFragmentManager()
         val transaction = fragmentManager?.beginTransaction()
+        transaction?.addToBackStack(null)
         transaction?.
-            replace(R.id.fragment_container,commentFragment)?.commit()
+            replace(R.id.fragment_container,commentFragment,"comment_fragment")?.commit()
     }
 
 
